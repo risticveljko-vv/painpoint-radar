@@ -1,0 +1,121 @@
+{
+  "_note": "Template for a product. Copy to ./catalogs/<name>.json, edit every field, run `painpoint-radar keywords list --product <name>`. product = what to listen for; subreddits = where; presets = how wide. contact = the address the archives see in the User-Agent ($PAINPOINT_RADAR_CONTACT wins). comment_policy stays unknown until a human reads each sub's rules for THIS purpose.",
+  "product": {
+    "name": "Queuely",
+    "aliases": [
+      "queuely"
+    ],
+    "site": "https://example.com",
+    "contact": "",
+    "domain": "background jobs",
+    "category": "background job queues and task scheduling for web apps",
+    "tool_label": "job queue libraries/services",
+    "relevance": "the thread is about running background jobs, queues, workers, retries or scheduled tasks in a web application (Sidekiq, BullMQ, Celery, RabbitMQ, SQS, cron). Hiring posts, generic SaaS chatter and unrelated performance questions are NOT relevant.",
+    "topics": [
+      "reliability",
+      "scaling",
+      "scheduling",
+      "observability"
+    ],
+    "keywords": {
+      "core": [
+        "background job",
+        "job queue",
+        "task queue",
+        "worker process",
+        "retry",
+        "dead letter",
+        "cron job",
+        "scheduled task"
+      ],
+      "generic": [
+        "queue",
+        "worker",
+        "jobs"
+      ],
+      "competitors": "providers"
+    }
+  },
+  "subreddits": {
+    "rails": {
+      "allow_generic": true,
+      "extra_keywords": [
+        "active job"
+      ],
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/rails/about/rules",
+      "audience": "Rails developers"
+    },
+    "node": {
+      "allow_generic": true,
+      "extra_keywords": [],
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/node/about/rules",
+      "audience": "Node.js developers"
+    },
+    "django": {
+      "allow_generic": true,
+      "extra_keywords": [],
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/django/about/rules",
+      "audience": "Django developers"
+    }
+  },
+  "presets": {
+    "queues": {
+      "subs": [
+        "rails",
+        "node",
+        "django"
+      ],
+      "created_within": "30d",
+      "active_within": "14d",
+      "min_hits": 2
+    }
+  },
+  "providers": {
+    "Sidekiq": [
+      "sidekiq"
+    ],
+    "BullMQ": [
+      "bullmq",
+      "bull queue"
+    ],
+    "Celery": [
+      "celery"
+    ],
+    "RabbitMQ": [
+      "rabbitmq"
+    ],
+    "Amazon SQS": [
+      "sqs",
+      "amazon sqs"
+    ],
+    "Temporal": [
+      "temporal.io",
+      "temporal workflow"
+    ],
+    "Inngest": [
+      "inngest"
+    ],
+    "Trigger.dev": [
+      "trigger.dev"
+    ]
+  },
+  "serp_keywords": {
+    "_note": "Google top-10 keywords the overlay checks for Reddit threads. Replace with the product's commercial terms.",
+    "alternatives": [
+      "sidekiq alternative",
+      "celery alternative",
+      "bullmq alternative"
+    ],
+    "category": [
+      "best background job queue",
+      "job queue for node",
+      "task queue python"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+runs/
+backlog_status.csv
+__pycache__/
+*.pyc
+.venv/
+dist/
+build/
+*.egg-info/
+.DS_Store

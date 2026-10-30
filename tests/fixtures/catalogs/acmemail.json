@@ -1,0 +1,271 @@
+{
+  "product": {
+    "name": "AcmeMail",
+    "aliases": [
+      "acmemail"
+    ],
+    "site": "https://acmemail.example",
+    "domain": "email",
+    "category": "email sending and inbound-email APIs (fictional test product)",
+    "tool_label": "email providers/services",
+    "topics": [
+      "sending",
+      "deliverability",
+      "inbound",
+      "testing",
+      "marketing"
+    ],
+    "relevance": "the thread is about sending, receiving, testing, delivering or marketing email in software\n  (SMTP, IMAP, APIs, deliverability, spam placement, DKIM/SPF/DMARC, transactional or marketing email,\n  parsing incoming mail, testing email in dev). Newsletters-as-a-business, job posts, generic SaaS chatter,\n  scraping for addresses, \"email me\" asides are NOT relevant.",
+    "keywords": {
+      "core": [
+        "smtp",
+        "deliverability",
+        "bounce",
+        "spam folder",
+        "transactional email",
+        "dkim",
+        "spf",
+        "dmarc",
+        "receive email",
+        "receiving email",
+        "incoming email",
+        "inbound email",
+        "parse email",
+        "email webhook",
+        "imap idle",
+        "email to webhook",
+        "mail server"
+      ],
+      "generic": [
+        "email",
+        "e-mail",
+        "resend",
+        "ses",
+        "imap",
+        "transactional"
+      ],
+      "competitors": "providers"
+    }
+  },
+  "subreddits": {
+    "learnpython": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/learnpython/about/rules",
+      "audience": "learnpython developers",
+      "allow_generic": true,
+      "extra_keywords": []
+    },
+    "PHPhelp": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/PHPhelp/about/rules",
+      "audience": "PHPhelp developers",
+      "allow_generic": true,
+      "extra_keywords": []
+    },
+    "node": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/node/about/rules",
+      "audience": "node developers",
+      "allow_generic": true,
+      "extra_keywords": []
+    },
+    "rails": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/rails/about/rules",
+      "audience": "rails developers",
+      "allow_generic": true,
+      "extra_keywords": []
+    },
+    "django": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/django/about/rules",
+      "audience": "django developers",
+      "allow_generic": true,
+      "extra_keywords": []
+    },
+    "laravel": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/laravel/about/rules",
+      "audience": "laravel developers",
+      "allow_generic": true,
+      "extra_keywords": []
+    },
+    "webdev": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/webdev/about/rules",
+      "audience": "webdev community",
+      "allow_generic": false,
+      "extra_keywords": []
+    },
+    "SaaS": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/SaaS/about/rules",
+      "audience": "SaaS community",
+      "allow_generic": false,
+      "extra_keywords": []
+    },
+    "AI_Agents": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/AI_Agents/about/rules",
+      "audience": "AI_Agents community",
+      "allow_generic": false,
+      "extra_keywords": []
+    },
+    "selfhosted": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/selfhosted/about/rules",
+      "audience": "selfhosted community",
+      "allow_generic": false,
+      "extra_keywords": []
+    },
+    "sysadmin": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/sysadmin/about/rules",
+      "audience": "sysadmin community",
+      "allow_generic": false,
+      "extra_keywords": []
+    },
+    "devops": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/devops/about/rules",
+      "audience": "devops community",
+      "allow_generic": false,
+      "extra_keywords": []
+    },
+    "golang": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/golang/about/rules",
+      "audience": "golang developers",
+      "allow_generic": true,
+      "extra_keywords": []
+    },
+    "dotnet": {
+      "comment_policy": "unknown",
+      "policy_note": "fill by hand from the rules page; the tool must not fetch reddit.com",
+      "policy_url": "https://www.reddit.com/r/dotnet/about/rules",
+      "audience": "dotnet developers",
+      "allow_generic": true,
+      "extra_keywords": []
+    }
+  },
+  "presets": {
+    "email-devs": {
+      "subs": [
+        "learnpython",
+        "PHPhelp",
+        "node",
+        "rails",
+        "django",
+        "laravel",
+        "webdev",
+        "SaaS"
+      ],
+      "created_within": "90d",
+      "active_within": "30d",
+      "min_hits": 2
+    },
+    "inbound-email": {
+      "subs": [
+        "learnpython",
+        "PHPhelp",
+        "node",
+        "webdev",
+        "AI_Agents",
+        "selfhosted"
+      ],
+      "created_within": "180d",
+      "active_within": "60d",
+      "min_hits": 2
+    }
+  },
+  "providers": {
+    "AcmeMail": [
+      "acmemail"
+    ],
+    "SendGrid": [
+      "sendgrid",
+      "twilio sendgrid"
+    ],
+    "Mailgun": [
+      "mailgun"
+    ],
+    "Postmark": [
+      "postmark"
+    ],
+    "Amazon SES": [
+      "ses",
+      "amazon ses",
+      "aws ses"
+    ],
+    "Resend": [
+      "resend"
+    ],
+    "Brevo": [
+      "brevo",
+      "sendinblue"
+    ],
+    "Mailchimp": [
+      "mailchimp"
+    ],
+    "Mandrill": [
+      "mandrill"
+    ],
+    "SparkPost": [
+      "sparkpost"
+    ],
+    "Mailjet": [
+      "mailjet"
+    ],
+    "SMTP2GO": [
+      "smtp2go"
+    ],
+    "Elastic Email": [
+      "elastic email"
+    ],
+    "Gmail SMTP": [
+      "gmail smtp",
+      "google workspace smtp"
+    ],
+    "Zoho": [
+      "zoho mail",
+      "zeptomail"
+    ]
+  },
+  "serp_keywords": {
+    "_note": "Test fixture: Google top-10 keywords the overlay checks for Reddit threads.",
+    "alternatives": [
+      "mailgun alternative",
+      "sendgrid alternative",
+      "postmark alternative",
+      "amazon ses alternative",
+      "resend alternative"
+    ],
+    "sending": [
+      "best transactional email service",
+      "transactional email api",
+      "best email api",
+      "email api for developers",
+      "smtp service",
+      "best smtp service"
+    ],
+    "inbound": [
+      "inbound email api",
+      "receive email api",
+      "email parsing api",
+      "email to webhook"
+    ]
+  }
+}
