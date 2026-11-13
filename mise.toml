@@ -1,0 +1,35 @@
+# Dev and QA environment. Same task names in every repo:
+# setup, check, test, qa. Run with `mise run <task>`.
+
+[tools]
+python = "3.13"
+
+[tasks.setup]
+description = "Install pinned tools and dependencies"
+run = [
+  "python -m venv .venv",
+  ".venv/bin/pip install -q -e '.[sentiment]'",
+]
+
+[tasks.check]
+description = "Static checks, no tests"
+run = ".venv/bin/python -m compileall -q src tests"
+
+[tasks.test]
+description = "Offline tests"
+run = ".venv/bin/python -m unittest discover -s tests"
+
+[tasks.qa]
+description = "Clean room: fresh clone of HEAD, then setup, check, test"
+run = '''
+set -e
+dir=$(mktemp -d)
+git clone -q . "$dir/repo"
+cd "$dir/repo"
+mise trust -q
+mise install -q
+mise run setup
+mise run check
+mise run test
+echo "QA passed on $(git rev-parse --short HEAD)"
+'''
