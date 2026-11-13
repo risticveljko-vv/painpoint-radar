@@ -5,7 +5,9 @@ build-backend = "hatchling.build"
 [project]
 name = "painpoint-radar"
 dynamic = ["version"]
-description = "Developer pain points from public Reddit archives: collect active threads, cluster the problems, score provider sentiment, rank threads worth joining."
+description = "Reddit pain points and voice-of-customer research for developer products, from public Reddit archives (no API key): cluster problems, score tool sentiment, rank threads worth joining."
+license = "MIT"
+keywords = ["reddit", "pain points", "voice of customer", "market research", "sentiment analysis", "arctic shift", "pushshift", "devrel"]
 readme = "README.md"
 requires-python = ">=3.13"
 authors = [{ name = "Veljko Ristic" }]

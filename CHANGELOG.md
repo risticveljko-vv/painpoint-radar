@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Public release under the MIT license.
+- README rewritten: what the digest contains, archive status checked 2026-11-13, responsible use, FAQ.
+- Dev and QA environment with mise (`mise run setup | check | test | qa`); CI runs the same tasks.
+
 ## 0.5.0 (2026-10-30)
 
 First standalone release.
