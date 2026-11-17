@@ -128,8 +128,8 @@ def summarise(clusters: list[dict], assignment: dict[str, str], threads: dict[st
 
 
 def run(run_dir: Path, max_clusters: int, backend, model, use_cache) -> dict:
-    threads = {r["id"]: r for r in (json.loads(l) for l in (run_dir / "threads.jsonl").read_text().splitlines() if l.strip())}
-    extracted = {e["id"]: e for e in (json.loads(l) for l in (run_dir / "extract.jsonl").read_text().splitlines() if l.strip())}
+    threads = {r["id"]: r for r in (json.loads(l) for l in (run_dir / "threads.jsonl").read_text().split("\n") if l.strip())}
+    extracted = {e["id"]: e for e in (json.loads(l) for l in (run_dir / "extract.jsonl").read_text().split("\n") if l.strip())}
     items = [e for e in extracted.values() if e.get("relevant") and (e.get("problem") or "").strip()]
     result = {"relevant_threads": len(items), "clusters": [], "unassigned": []}
     if len(items) < 3:

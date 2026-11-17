@@ -5,6 +5,9 @@
 - Public release under the MIT license.
 - README rewritten: what the digest contains, archive status checked 2026-11-13, responsible use, FAQ.
 - Dev and QA environment with mise (`mise run setup | check | test | qa`); CI runs the same tasks.
+- Fixed: a post that contains a Unicode line separator (U+2028, U+2029 or U+0085) broke every step after `collect`
+  with a JSON error. The steps read JSON-lines files with `splitlines()`, which also splits on those characters.
+  They now split on the newline character only.
 
 ## 0.5.0 (2026-10-30)
 

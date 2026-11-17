@@ -109,11 +109,11 @@ def llm_votes(pairs: list[tuple[str, str, list[str]]], backend, model, use_cache
 
 
 def run(run_dir: Path, catalog: Path | None, all_threads: bool, backend, model, use_cache) -> dict:
-    threads = [json.loads(l) for l in (run_dir / "threads.jsonl").read_text().splitlines() if l.strip()]
+    threads = [json.loads(l) for l in (run_dir / "threads.jsonl").read_text().split("\n") if l.strip()]
     ex_path = run_dir / "extract.jsonl"
     relevant = None
     if ex_path.exists() and not all_threads:
-        relevant = {e["id"] for e in (json.loads(l) for l in ex_path.read_text().splitlines() if l.strip()) if e.get("relevant")}
+        relevant = {e["id"] for e in (json.loads(l) for l in ex_path.read_text().split("\n") if l.strip()) if e.get("relevant")}
     providers = load_providers(catalog)
     rxs = provider_regexes(providers)
     pairs = []

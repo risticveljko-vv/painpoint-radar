@@ -212,7 +212,7 @@ re-run only pays for new threads. Prompts sent to the model carry no usernames: 
 mise run test                          # or: python3 -m unittest discover -s tests
 ```
 
-107 offline tests cover window parsing, keyword matching and gating, activity logic, the authorless corpus, catalog
+110 offline tests cover window parsing, keyword matching and gating, activity logic, the authorless corpus, catalog
 resolution, keyword import, statistics (κ, Wilson, bootstrap), the recommender, the overlay and every pipeline
 module. No test touches the network; `painpoint-radar ping` is the live smoke test. With
 [mise](https://mise.jdx.dev), `mise run setup | check | test | qa` works the same locally and in CI.

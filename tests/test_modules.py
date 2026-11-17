@@ -1,5 +1,6 @@
-"""Offline tests for the pipeline modules: extract, cluster, sentiment, delta, digest, seed."""
+"""Offline tests for the pipeline modules: extract, cluster, sentiment, delta, digest, seed, and their JSON-lines readers."""
 import json, sys, time, tempfile, unittest
+from unittest import mock
 from collections import Counter
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
@@ -122,6 +123,45 @@ class Digest(unittest.TestCase):
             self.assertIn("Not reported (below the bar): SendGrid", md)
             self.assertNotIn("alice_op", md); self.assertNotIn("bob_helper", md)
             self.assertIn("`t1`", md)
+
+
+class JsonLines(unittest.TestCase):
+    """A post can hold U+2028, U+2029 or U+0085. str.splitlines() treats each as a line end, and
+    json.dumps(ensure_ascii=False) writes them as they are, so every reader splits on "\n" only."""
+    SEPARATORS = "\u2028\u2029\x85"
+
+    def _run(self, d):
+        run = Path(d)
+        recs = [thread("t1", selftext="first" + self.SEPARATORS + "second"), thread("t2")]
+        (run / "threads.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in recs), encoding="utf-8")
+        return run, recs
+
+    def test_readers_keep_a_record_that_holds_line_separators(self):
+        from painpoint_radar import overlay, recommend
+        with tempfile.TemporaryDirectory() as d:
+            run, recs = self._run(d)
+            f = run / "threads.jsonl"
+            self.assertEqual(recommend.read_jsonl(f), recs)
+            self.assertEqual(overlay._jsonl(f), recs)
+            self.assertEqual(digest._jsonl(f), recs)
+            self.assertEqual(delta._ids(run), {"t1", "t2"})
+
+    def test_extract_reads_a_record_that_holds_line_separators(self):
+        with tempfile.TemporaryDirectory() as d, tempfile.TemporaryDirectory() as cache:
+            run, _ = self._run(d)
+            blank = lambda chunk, *_: [extract._blank(r["id"], "not called in tests") for r in chunk]
+            with mock.patch.object(extract, "EXTRACT_CACHE", Path(cache)), mock.patch.object(extract, "extract_batch", blank), \
+                 mock.patch.object(extract.llm, "pick_backend", lambda name: "none"):
+                summary = extract.run(run, batch=8, limit=0, backend=None, model=None, use_cache=False)
+            self.assertEqual(summary["threads"], 2)
+            self.assertEqual(len(digest._jsonl(run / "extract.jsonl")), 2)
+
+    def test_no_reader_parses_json_lines_with_splitlines(self):
+        src = Path(extract.__file__).parent
+        hits = [f"{p.name}:{n}" for p in sorted(src.glob("*.py"))
+                for n, line in enumerate(p.read_text(encoding="utf-8").split("\n"), 1)
+                if "splitlines" in line and "json.loads" in line]
+        self.assertEqual(hits, [])
 
 
 class Seed(unittest.TestCase):

@@ -143,7 +143,7 @@ def cache_dir() -> Path:
 
 
 def run(run_dir: Path, batch: int, limit: int, backend: str | None, model: str | None, use_cache: bool) -> dict:
-    records = [json.loads(l) for l in (run_dir / "threads.jsonl").read_text().splitlines() if l.strip()]
+    records = [json.loads(l) for l in (run_dir / "threads.jsonl").read_text().split("\n") if l.strip()]
     if limit:
         records = records[:limit]
     cache = cache_dir()

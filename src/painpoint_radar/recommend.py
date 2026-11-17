@@ -106,7 +106,7 @@ def recommend(threads: list[dict], extracts: list[dict] | None = None,
 
 def read_jsonl(path: Path, *, optional: bool = False) -> list[dict]:
     try:
-        return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+        return [json.loads(line) for line in path.read_text(encoding="utf-8").split("\n") if line.strip()]
     except FileNotFoundError:
         if optional:
             return []

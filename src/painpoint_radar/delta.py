@@ -24,7 +24,7 @@ def _load(path: Path):
 
 def _ids(run: Path) -> set[str]:
     f = run / "threads.jsonl"
-    return {json.loads(l)["id"] for l in f.read_text().splitlines() if l.strip()} if f.exists() else set()
+    return {json.loads(l)["id"] for l in f.read_text().split("\n") if l.strip()} if f.exists() else set()
 
 
 def legacy_product() -> str:

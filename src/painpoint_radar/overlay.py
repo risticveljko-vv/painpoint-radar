@@ -142,7 +142,7 @@ def load_status(path: Path) -> dict[str, dict]:
 
 
 def _jsonl(path: Path) -> list[dict]:
-    return [json.loads(l) for l in path.read_text().splitlines() if l.strip()] if path.exists() else []
+    return [json.loads(l) for l in path.read_text().split("\n") if l.strip()] if path.exists() else []
 
 
 def build(run: Path, catalog: dict | None = None, *, status: dict[str, dict] | None = None, now: float | None = None,
